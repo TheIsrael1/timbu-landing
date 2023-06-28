@@ -1,0 +1,21 @@
+---
+import { CollectionEntry, getCollection } from "astro:content";
+
+export async function getStaticPaths() {
+    const businessesEntries = await getCollection("businessTypes");
+    return businessesEntries?.map((entry) => ({
+        params: { slug: entry?.slug },
+        props: { entry },
+    }));
+}
+
+interface Props {
+    entry: CollectionEntry<"businessTypes">;
+}
+
+const { entry } = Astro.props;
+
+const businessType = entry.data;
+---
+
+<main>bussiness type page</main>

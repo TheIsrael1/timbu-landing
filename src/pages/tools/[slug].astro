@@ -1,0 +1,21 @@
+---
+import { CollectionEntry, getCollection } from "astro:content";
+
+export async function getStaticPaths() {
+    const businessesEntries = await getCollection("tools");
+    return businessesEntries?.map((entry) => ({
+        params: { slug: entry?.slug },
+        props: { entry },
+    }));
+}
+
+interface Props {
+    entry: CollectionEntry<"tools">;
+}
+
+const { entry } = Astro.props;
+
+const tool = entry.data;
+---
+
+<main>tool page</main>
