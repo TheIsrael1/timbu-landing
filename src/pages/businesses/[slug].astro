@@ -24,6 +24,8 @@ export async function getStaticPaths() {
     }));
 }
 
+export const prerender = true;
+
 interface Props {
     entry: CollectionEntry<"businessTypes">;
 }

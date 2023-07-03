@@ -11,6 +11,8 @@ export interface Props {
 	title: string;
 }
 
+export const prerender = true;
+
 const { title } = Astro.props;
 
 const footerLinks = await getCollection("footerLinks");
