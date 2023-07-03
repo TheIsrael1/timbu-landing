@@ -1,5 +1,11 @@
 ---
 import { CollectionEntry, getCollection } from "astro:content";
+import TextFormat from "lib/helpers/TextFormat";
+import { getEntries } from "astro:content";
+import Faq from "components/Faq";
+import PreFooter from "components/PreFooter";
+import Layout from "layouts/Layout.astro";
+import toolImage from "assets/image/toolImage.png";
 
 export async function getStaticPaths() {
     const businessesEntries = await getCollection("tools");
@@ -16,6 +22,125 @@ interface Props {
 const { entry } = Astro.props;
 
 const tool = entry.data;
+
+const faqs = await getCollection("faq");
 ---
 
-<main>tool page</main>
+<Layout title="Welcome to Astro.">
+    <main class="w-full flex flex-col">
+        <section
+            class="w-full px-container-base lg:px-container-lg pt-[4.75rem] pb-[4.25rem] md:pt-[6.44rem] md:pb-[4.94rem]"
+        >
+            <div
+                class="w-full flex flex-col lg:flex-row lg:justify-between gap-[7.5rem] md:gap-[2.75rem] relative"
+            >
+                <div
+                    class="flex flex-col w-full lg:min-w-[38.5rem] md:py-[4.5rem]"
+                >
+                    <h2
+                        class="font-[600] text-secondary-2 text-[4rem] md:text-[4.5rem] leading-[130%] md:leading-[5rem] tracking-[0.02rem] md:tracking-[0.0225rem] mb-[2.5rem]"
+                    >
+                        <TextFormat
+                            text={tool?.heroTitle}
+                            keyword={tool?.toolName}
+                            keywordClassName="text-primary-1"
+                        />
+                    </h2>
+                    <p
+                        class="font-[500] text-secondary-2 text-[1.25rem] leading-[1.75rem] tracking-[0.00625rem] mb-[1.5rem] max-w-[28.875rem]"
+                    >
+                        {tool?.phrase}
+                    </p>
+                    <p
+                        class="text-secondary-3 leading-[1.5rem] text-[16px] md:text-[14px] mb-[2rem] max-w-[29.9375rem]"
+                    >
+                        {tool?.description}
+                    </p>
+                    <div class="flex items-center gap-[0.62rem]">
+                        <div class="flex items-center gap-[2px]">
+                            <button
+                                class="py-[1.5rem] px-[2.5rem] bg-primary-1 rounded-[0.3125rem] hover:opacity-95 transition-opacity duration-300 ease-in-out"
+                            >
+                                <span class="text-white leading-[1.375rem]"
+                                    >Get started for free</span
+                                >
+                            </button>
+                        </div>
+                    </div>
+                </div>
+                <div
+                    class="lg:min-w-[48.125%] flex-grow flex-shrink-0 basis-1 lg:pl-[8px] overflow-hidden min-h-[39rem] w-full"
+                >
+                    <img src={toolImage?.src} alt="" class="w-full h-full" />
+                </div>
+            </div>
+        </section>
+        <section class="w-full px-container-base lg:px-container-lg py-[5rem]">
+            <div class="w-full flex flex-col items-center">
+                <h4
+                    class="text-secondary-2 text-[2.5rem] font-[700] leading-[3.5rem] tracking-[0.0125rem] mb-[1rem] max-w-[41.625rem] text-center"
+                >
+                    <TextFormat
+                        keyword={tool?.toolName}
+                        keywordClassName="text-primary-1"
+                        text={tool?.howSectionTitle}
+                    />
+                </h4>
+                <p
+                    class="text-secondary-5 text-[1.125rem] leading-[1.5rem] tracking-[0.00563rem] max-w-[37.75rem] text-center mb-[2.5rem]"
+                >
+                    Timbu is a business management, finance and marketing tool
+                    that helps your business be more organized and grow!
+                </p>
+                <div class="w-full md:h-[40rem] max-w-[62.5rem]">
+                    <iframe
+                        class="w-full h-full"
+                        src={tool?.howSectionTutorial}
+                        title="YouTube video player"
+                        frameborder="0"
+                        allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
+                        allowfullscreen></iframe>
+                </div>
+            </div>
+        </section>
+        {
+            tool?.sections?.map((i, idx) => (
+                <section class="w-full px-container-base lg:px-container-lg mt-[5rem]">
+                    <div
+                        class={`w-full flex flex-col ${
+                            idx % 2 === 0
+                                ? `md:flex-row`
+                                : `md:flex-row-reverse`
+                        } gap-[5rem] `}
+                    >
+                        <div
+                            class={`flex flex-col flex-grow items-center justify-center gap-[1.5rem]`}
+                        >
+                            <h3 class="max-w-[27rem] text-secondary-2 text-[2.5rem] font-[600] leading-[3rem] tracking-[-0.02388rem]">
+                                {i?.heading}
+                            </h3>
+                            <p class="max-w-[27rem] text-secondary-8 -tracking-[0.01594rem] leading-[1.5rem]">
+                                {i?.paragraph}
+                            </p>
+                        </div>
+                        <div class="flex items-center w-full h-full md:w-[50%] rounded-[0.75rem] bg-secondary-16  px-[2.83356rem] pt-[4.1885rem]">
+                            <img
+                                src={`${i?.image}`}
+                                alt=""
+                                class="w-full h-full"
+                            />
+                        </div>
+                    </div>
+                </section>
+            ))
+        }
+        <section class="w-full px-container-base lg:px-container-lg py-[5rem]">
+            <Faq client:only data={faqs} />
+        </section>
+        <section
+            class="w-full px-container-base lg:px-container-lg py-[2.5rem]"
+        >
+            <PreFooter />
+        </section>
+    </main>
+</Layout>

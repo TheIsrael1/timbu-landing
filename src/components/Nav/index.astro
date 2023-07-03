@@ -1,5 +1,6 @@
 ---
 import { Icon } from "astro-icon";
+import NavDrop from "components/NavDrop";
 
 type navItemTypes = "Features" | "Hardware" | "developer" | "other resources";
 
@@ -8,7 +9,7 @@ interface navItemInterface {
     link: string;
 }
 
-const navItems: Record<navItemTypes, navItemInterface[]> = {
+const tools: Record<navItemTypes, navItemInterface[]> = {
     "other resources": [],
     developer: [],
     Features: [],
@@ -16,32 +17,43 @@ const navItems: Record<navItemTypes, navItemInterface[]> = {
 };
 ---
 
-<nav
-    class="contatiner px-container-base lg:px-container-lg pt-[1.5rem] pb-[.5rem] lg:pt-[2rem] lg:pb-[.5rem] border-b border-b-primary-2 lg:border-b-secondary-1"
->
-    <div class="w-full flex items-center justify-between">
+<nav class="contatiner px-container-base lg:px-container-lg bg-transparent">
+    <div
+        class="w-full flex items-center justify-between border-b border-b-primary-2 lg:border-b-secondary-1 pb-[0.75rem] md:pb-[1rem] pt-[1.5rem]"
+    >
         <div class="flex items-center gap-[2.5rem]">
             <Icon
                 name="timbuLogo"
                 class="w-[5rem] h-[3.1875rem] lg:w-[6.125rem] lg:h-[3.875rem]"
             />
-            <div class="flex items-center gap-[0.5rem]"></div>
+            <div class="hidden lg:flex items-center gap-[0.5rem]">
+                <NavDrop client:only />
+            </div>
         </div>
-        <!-- <div class="flex items-center gap-1">
+        <div class="hidden md:flex items-center gap-1">
             <button
-                class="flex px-[1rem] py-[0.625rem] text-secondary-2 text-[1.5rem] font-[600] leading-[1.75rem] tracking-[0.0075rem]"
+                class="text-secondary-2 text-[16px] font-[600] leading-[1.5rem] tracking-[0.005rem] px-[1rem]"
             >
                 Sign Up
             </button>
             <button
-                class="h-[4.5rem] px-[2.125rem] border rounded-[8px] border-primary-1"
+                class="flex items-center justify-center gap-2 h-[4rem] px-[1.25rem] border rounded-[8px] border-primary-1"
             >
                 <span
-                    class="text-[14px] text-secondary-2 font-[600] leading-[1.875rem] tracking-[0.0075rem]"
+                    class="text-[16px] text-secondary-2 font-[600] leading-[1.5rem] tracking-[0.005rem]"
                     >Request a Demo
                 </span>
+                <span
+                    class="block w-[2rem] h-[2rem] bg-slate-200 rounded-[50px]"
+                >
+                </span>
             </button>
-            <button> Try for free</button>
-        </div> -->
+            <button class="h-[4rem] px-[1.25rem] rounded-[8px] bg-primary-1">
+                <span
+                    class="text-[16px] text-white font-[600] leading-[1.5rem] tracking-[0.0005rem]"
+                    >Try for free</span
+                >
+            </button>
+        </div>
     </div>
 </nav>

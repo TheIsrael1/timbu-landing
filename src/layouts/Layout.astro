@@ -1,12 +1,19 @@
 ---
 import Nav from "components/Nav/index.astro";
 import "@fontsource/lato";
+import "@fontsource-variable/plus-jakarta-sans";
+import heroBgImg from "../assets/heroBgImage.svg";
+import heroBgImgMobile from "../assets/heroBgImageMobile.svg";
+import Footer from "components/Footer";
+import { getCollection } from "astro:content";
 
 export interface Props {
 	title: string;
 }
 
 const { title } = Astro.props;
+
+const footerLinks = await getCollection("footerLinks");
 ---
 
 <!DOCTYPE html>
@@ -20,8 +27,17 @@ const { title } = Astro.props;
 		<title>{title}</title>
 	</head>
 	<body class="font-lato">
+		<div class="w-full absolute top-0 z-[-1]">
+			<img src={heroBgImg?.src} class="hidden lg:flex w-full" />
+			<img src={heroBgImgMobile?.src} class="lg:hidden w-full" />
+		</div>
 		<Nav />
 		<slot />
+		<section
+			class="w-full px-container-base lg:px-container-lg py-[1.5rem]"
+		>
+			<Footer data={footerLinks} />
+		</section>
 	</body>
 </html>
 <style is:global>

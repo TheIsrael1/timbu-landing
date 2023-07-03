@@ -1,5 +1,20 @@
 ---
 import { CollectionEntry, getCollection } from "astro:content";
+import Layout from "layouts/Layout.astro";
+import starIcon from "assets/star.svg";
+import GetStartedCard from "components/GetStartedCard";
+import TextFormat from "lib/helpers/TextFormat";
+import { getEntries } from "astro:content";
+import HowToSection from "components/HowToSection";
+import sassLogo from "assets/sassLogo.svg";
+import Video from "components/Video";
+import rightArrow from "assets/arrowRight.svg";
+import threeStars from "assets/threeStars.svg";
+import blueCheck from "assets/blueCheck.svg";
+import PeopleSayCarousel from "components/PeopleSayCarousel";
+import Faq from "components/Faq";
+import PreFooter from "components/PreFooter";
+import BusinessSelection from "components/BusinessSelection";
 
 export async function getStaticPaths() {
     const businessesEntries = await getCollection("businessTypes");
@@ -16,6 +31,236 @@ interface Props {
 const { entry } = Astro.props;
 
 const businessType = entry.data;
+
+const res2 = await getCollection("customers");
+const heroBusinessPartners = res2?.filter(
+    (i) => i?.data?.customerType === "business"
+);
+
+const relatedHowToSectionContent = await getEntries(
+    businessType?.howToCaseStudies
+);
+
+const relatedFeatures = await getEntries(businessType?.marketingFeatures);
+
+const whatBusinessSay = await getCollection("customers");
+
+const faqs = await getCollection("faq");
+
+const allBusinessTypes = await getCollection("businessTypes");
+const allTools = await getCollection("tools");
 ---
 
-<main>bussiness type page</main>
+<Layout title="Welcome to Astro.">
+    <main class="w-full flex flex-col">
+        <section
+            class="w-full px-container-base lg:px-container-lg pt-[4.75rem] pb-[4.25rem] md:pt-[6.44rem] md:pb-[4.94rem]"
+        >
+            <div
+                class="w-full flex flex-col lg:flex-row lg:justify-between gap-[7.5rem] md:gap-[2.75rem] relative"
+            >
+                <div class="flex-grow flex flex-col md:py-[4.5rem]">
+                    <h2
+                        class="font-[600] text-secondary-2 text-[4rem] md:text-[4.5rem] leading-[130%] md:leading-[5rem] tracking-[0.02rem] md:tracking-[0.0225rem] mb-[2.5rem]"
+                    >
+                        <TextFormat
+                            text={businessType?.heroTitle}
+                            keyword={businessType?.heroTitleKeyword}
+                            keywordClassName="text-primary-1"
+                        />
+                    </h2>
+                    <p
+                        class="font-[500] text-secondary-2 text-[1.25rem] leading-[1.75rem] tracking-[0.00625rem] mb-[1.5rem] max-w-[28.875rem]"
+                    >
+                        {businessType?.phrase}
+                    </p>
+                    <p
+                        class="text-secondary-3 leading-[1.5rem] text-[16px] md:text-[14px] mb-[2rem] max-w-[29.9375rem]"
+                    >
+                        {businessType?.description}
+                    </p>
+                    <div class="flex items-center gap-[0.62rem]">
+                        <div class="flex relative items-center">
+                            {
+                                heroBusinessPartners?.map((i, idx) => (
+                                    <div
+                                        class={`-ml-[10px] z-${
+                                            idx + 2
+                                        } rounded-[50px] h-[2rem] w-[2rem] border border-white bg-slate-300 overflow-hidden`}
+                                    >
+                                        <img
+                                            src={i?.data?.image}
+                                            alt=""
+                                            class="w-full h-full bg-cover bg-center"
+                                        />
+                                    </div>
+                                ))
+                            }
+                        </div>
+                        <div class="flex items-center gap-[2px]">
+                            {
+                                [...Array(5)]?.map((_) => (
+                                    <img
+                                        src={starIcon?.src}
+                                        alt=""
+                                        width={starIcon?.width}
+                                        height={starIcon?.height}
+                                    />
+                                ))
+                            }
+                        </div>
+                    </div>
+                </div>
+                <div class="w-full lg:min-w-[48.125%] lg:pl-[8px]">
+                    <GetStartedCard bussinessType={businessType?.name} />
+                </div>
+            </div>
+        </section>
+        <section
+            class="w-full px-container-base lg:px-container-lg py-[2.75rem] flex flex-col gap-[2.5rem]"
+        >
+            <h3
+                class="text-secondary-2 max-w-[28.25rem] leading-[4rem] -tracking-[0.04688rem] text-[3rem]"
+            >
+                {businessType?.howToSectionTitles}
+            </h3>
+            <HowToSection client:only data={relatedHowToSectionContent} />
+        </section>
+        <section class="w-full bg-secondary-9 relative mb-[7.5rem]">
+            <div
+                class="px-container-base lg:px-container-lg py-[5rem] grid grid-cols-1 md:grid-cols-2 md:gap-[4.69rem]"
+            >
+                <div class="flex flex-col">
+                    <img src={sassLogo?.src} alt="" class="w-[5rem] h-[5rem]" />
+                    <h4
+                        class="text-white text-[2.25rem] font-[600] leading-[3.5rem] mb-[3rem]"
+                    >
+                        {businessType.marketingVideoTitle}
+                    </h4>
+                    <div class="flex overflow-hidden w-full max-h-[32.375rem]">
+                        <Video link={businessType?.marketingVideoLink} />
+                    </div>
+                </div>
+                <div
+                    class="w-full relative px-[2.5rem] pb-[2.5rem] pt-[5rem] flex flex-col bg-white rounded-[1rem] shadow-4 -top-[0.5rem] md:top-0 md:-bottom-[12rem]"
+                >
+                    <h5
+                        class="text-secondary-2 text-[2rem] font-[600] leading-[2.5rem] mb-[1.5rem]"
+                    >
+                        {businessType?.marketingSectionTitle}
+                    </h5>
+                    <p
+                        class="text-secondary-5 font-[500] leading-[1.5rem] tracking-[0.005rem] mb-[2rem]"
+                    >
+                        {businessType?.marketingSectionDescription}
+                    </p>
+                    <div
+                        class="grid gap-y-[1.5rem] grid-cols-1 lg:grid-cols-2 mb-[3.5rem]"
+                    >
+                        {
+                            relatedFeatures?.map((i) => (
+                                <div class="flex items-center p-[0.5rem] gap-[0.5rem]">
+                                    <div class="h-[2.5rem] w-[2.5rem] rounded-[50px] bg-primary-1 grid place-items-center">
+                                        <img src={`${i?.data?.icon}`} alt="" />
+                                    </div>
+                                    <span class="text-secondary-5 leading-[1.5rem] tracking-[0.005rem]">
+                                        {i?.data?.toolName}
+                                    </span>
+                                </div>
+                            ))
+                        }
+                    </div>
+                    <div class="w-full flex justify-end">
+                        <div
+                            class="flex items-center group gap-2 group cursor-pointer"
+                        >
+                            <span
+                                class="text-primary-1 font-500 leading-[2rem] tracking-[0.005rem]"
+                                >Get Started</span
+                            >
+                            <img
+                                src={rightArrow?.src}
+                                alt=""
+                                class="group-hover:translate-x-[2px] duration-300 transition-transform ease-in-out"
+                            />
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+        <section class="w-full px-container-base lg:px-container-lg">
+            <BusinessSelection
+                businessTypes={allBusinessTypes}
+                tools={allTools}
+                bussinessType={businessType?.name}
+            />
+        </section>
+        <section class="w-full px-container-base lg:px-container-lg py-[5rem]">
+            <div
+                class="w-full flex flex-col lg:flex-row justify-between gap-x-[3.62rem] gap-y-[7.5rem]"
+            >
+                <div class="flex-grow flex flex-col justify-center">
+                    <div
+                        class="py-[0.5rem] px-[0.75rem] rounded-[0.25rem] flex items-center gap-[2.88rem] bg-primary-1 w-max mb-[1rem]"
+                    >
+                        <img src={threeStars?.src} alt="" />
+                        <span
+                            class="text-white font-[700] text-[0.875rem] leading-[1.3125rem]"
+                            >Get Started</span
+                        >
+                        <img src={threeStars?.src} alt="" />
+                    </div>
+                    <h4
+                        class="text-secondary-7 text-[2.5rem] leading-[3.5rem] mb-[2rem]"
+                    >
+                        I am Interested!
+                    </h4>
+                    <p
+                        class="text-secondary-7 text-[1.125rem] leading-[1.5rem] mb-[1.5rem]"
+                    >
+                        Ready to Timbu? Manage, Grow and boost your business
+                        productivity with Timbu.
+                    </p>
+                    <div class="px-[3.79rem] flex flex-col gap-[1.5rem]">
+                        {
+                            [
+                                "Send unlimited invoices and estimates from anywhere.",
+                                "Send digital receipts for any payment.",
+                                "Schedule automatic payment reminders.",
+                                "Save and reuse custom invoice templates.",
+                            ]?.map((i) => (
+                                <div class="flex items-center gap-[1rem]">
+                                    <img src={blueCheck?.src} alt="" />
+                                    <span class="text-secondary-7 leading-[1.5rem]">
+                                        {i}
+                                    </span>
+                                </div>
+                            ))
+                        }
+                    </div>
+                </div>
+                <div class="w-full lg:w-[42.75rem]">
+                    <GetStartedCard
+                        size="sm"
+                        bussinessType={businessType?.name}
+                    />
+                </div>
+            </div>
+        </section>
+        <section class="w-full">
+            <PeopleSayCarousel
+                client:only
+                title="What Businesses say about Timbu."
+                data={whatBusinessSay}
+            />
+        </section>
+        <section class="w-full px-container-base lg:px-container-lg py-[5rem]">
+            <Faq client:only data={faqs} />
+        </section>
+        <section
+            class="w-full px-container-base lg:px-container-lg py-[2.5rem]"
+        >
+            <PreFooter />
+        </section>
+    </main>
+</Layout>
