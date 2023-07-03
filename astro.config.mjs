@@ -9,10 +9,7 @@ export default defineConfig({
   experimental: {
     assets: true
   },
-  build: {
-      split: true
-  },
   integrations: [tailwind(), react()],
   output: "server",
   adapter: vercel()
-});
+});  
