@@ -126,7 +126,7 @@ const allTools = await getCollection("tools");
             >
                 {businessType?.howToSectionTitles}
             </h3>
-            <HowToSection client:load data={relatedHowToSectionContent} />
+            <HowToSection client:only data={relatedHowToSectionContent} />
         </section>
         <section class="w-full bg-secondary-9 relative mb-[7.5rem]">
             <div
@@ -251,13 +251,13 @@ const allTools = await getCollection("tools");
         </section>
         <section class="w-full">
             <PeopleSayCarousel
-                client:load
+                client:only
                 title="What Businesses say about Timbu."
                 data={whatBusinessSay}
             />
         </section>
         <section class="w-full px-container-base lg:px-container-lg py-[5rem]">
-            <Faq client:load data={faqs} />
+            <Faq client:only data={faqs} />
         </section>
         <section
             class="w-full px-container-base lg:px-container-lg py-[2.5rem]"

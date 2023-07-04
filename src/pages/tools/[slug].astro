@@ -137,7 +137,7 @@ const faqs = await getCollection("faq");
             ))
         }
         <section class="w-full px-container-base lg:px-container-lg py-[5rem]">
-            <Faq client:load data={faqs} />
+            <Faq client:only data={faqs} />
         </section>
         <section
             class="w-full px-container-base lg:px-container-lg py-[2.5rem]"
