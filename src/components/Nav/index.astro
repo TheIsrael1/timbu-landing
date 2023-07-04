@@ -1,20 +1,12 @@
 ---
 import { Icon } from "astro-icon";
+import { getCollection } from "astro:content";
 import NavDrop from "components/NavDrop";
+import DpPlaceholder from "assets/dpPlaceholder.svg";
+import Menu from "components/Menu";
 
-type navItemTypes = "Features" | "Hardware" | "developer" | "other resources";
-
-interface navItemInterface {
-    title: string;
-    link: string;
-}
-
-const tools: Record<navItemTypes, navItemInterface[]> = {
-    "other resources": [],
-    developer: [],
-    Features: [],
-    Hardware: [],
-};
+const businessTypes = await getCollection("businessTypes");
+const toolsLinks = await getCollection("navToolsLinks");
 ---
 
 <nav class="contatiner px-container-base lg:px-container-lg bg-transparent">
@@ -27,33 +19,47 @@ const tools: Record<navItemTypes, navItemInterface[]> = {
                 class="w-[5rem] h-[3.1875rem] lg:w-[6.125rem] lg:h-[3.875rem]"
             />
             <div class="hidden lg:flex items-center gap-[0.5rem]">
-                <NavDrop client:only />
+                <NavDrop
+                    businesses={businessTypes}
+                    tools={toolsLinks}
+                    client:only
+                />
             </div>
         </div>
         <div class="hidden md:flex items-center gap-1">
             <button
-                class="text-secondary-2 text-[16px] font-[600] leading-[1.5rem] tracking-[0.005rem] px-[1rem]"
+                class="text-secondary-2 text-[16px] hover:text-primary-1 transition-colors ease-in-out duration-300 font-[600] leading-[1.5rem] tracking-[0.005rem] px-[1rem]"
             >
                 Sign Up
             </button>
             <button
-                class="flex items-center justify-center gap-2 h-[4rem] px-[1.25rem] border rounded-[8px] border-primary-1"
+                class="flex items-center justify-center group gap-2 h-[4rem] px-[1.25rem] border rounded-[8px] border-primary-1 hover:bg-primary-1/[0.05] transition-colors ease-in-out duration-300"
             >
                 <span
-                    class="text-[16px] text-secondary-2 font-[600] leading-[1.5rem] tracking-[0.005rem]"
+                    class="text-[16px] text-secondary-2 group-hover:text-primary-1 transition-colors ease-in-out duration-300 font-[600] leading-[1.5rem] tracking-[0.005rem]"
                     >Request a Demo
                 </span>
                 <span
-                    class="block w-[2rem] h-[2rem] bg-slate-200 rounded-[50px]"
+                    class="block w-[2rem] h-[2rem] bg-slate-200 rounded-[50px] overflow-hidden"
                 >
+                    <img
+                        src={DpPlaceholder?.src}
+                        alt=""
+                        class="w-full h-full"
+                    />
                 </span>
             </button>
-            <button class="h-[4rem] px-[1.25rem] rounded-[8px] bg-primary-1">
+            <button
+                class="h-[4rem] px-[1.25rem] transition-opacity ease-in-out duration-300 rounded-[8px] bg-primary-1 hover:opacity-95 active:opacity-100"
+            >
                 <span
                     class="text-[16px] text-white font-[600] leading-[1.5rem] tracking-[0.0005rem]"
                     >Try for free</span
                 >
             </button>
+        </div>
+        <div class="flex md:hidden">
+            <Menu businesses={businessTypes} tools={toolsLinks} client:only />
         </div>
     </div>
 </nav>

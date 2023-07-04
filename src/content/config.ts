@@ -91,6 +91,19 @@ const footerLinksSchema = z.object({
     })).optional()
 })
 
+const navToolsLinksSchema = z.object({
+    main: z.array(z.object({
+        title: z.string(),
+        link: z.string(),
+        category: z.enum(["features", "hardware", "developer", "other resources"])
+    })),
+    featured: z.array(z.object({
+        image: z.string(),
+        title: z.string(),
+        description: z.string()
+    })) 
+})
+
 
 export type FaqSchema = z.infer<typeof faqSchema>
 export type BusinessTypesSchema = z.infer<typeof businessTypesSchema>
@@ -137,6 +150,11 @@ const footerLinksCollection = defineCollection({
     schema: footerLinksSchema
 })
 
+const navToolsSchema = defineCollection({
+    type: "content",
+    schema: navToolsLinksSchema
+})
+
 export const collections = {
     'faq': faqCollection,
     'businessTypes': businessTypesCollection,
@@ -145,6 +163,7 @@ export const collections = {
     'pricing': pricingCollection,
     'tools': toolsCollection,
     'caseStudies': caseStudiesCollection,
-    'footerLinks': footerLinksCollection
+    'footerLinks': footerLinksCollection,
+    'navToolsLinks': navToolsSchema, 
 }
 

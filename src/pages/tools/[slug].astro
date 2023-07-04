@@ -31,7 +31,7 @@ const faqs = await getCollection("faq");
 <Layout title="Welcome to Astro.">
     <main class="w-full flex flex-col">
         <section
-            class="w-full px-container-base lg:px-container-lg pt-[4.75rem] pb-[4.25rem] md:pt-[6.44rem] md:pb-[4.94rem]"
+            class="w-full px-container-base lg:px-container-lg pt-[4.75rem] pb-[4.25rem] md:pt-[6.44rem] md:pb-[4.94rem] overflow-hidden"
         >
             <div
                 class="w-full flex flex-col lg:flex-row lg:justify-between gap-[7.5rem] md:gap-[2.75rem] relative"
@@ -71,7 +71,7 @@ const faqs = await getCollection("faq");
                     </div>
                 </div>
                 <div
-                    class="lg:min-w-[48.125%] flex-grow flex-shrink-0 basis-1 lg:pl-[8px] overflow-hidden min-h-[39rem] w-full"
+                    class="lg:max-w-[48.125%] flex-grow flex-shrink-0 lg:pl-[8px] flex-shrink-1 basis-auto overflow-hidden min-h-[39rem] w-full"
                 >
                     <img src={toolImage?.src} alt="" class="w-full h-full" />
                 </div>

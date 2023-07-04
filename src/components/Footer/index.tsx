@@ -23,15 +23,15 @@ const Footer = ({ data }: IFooter) => {
           </button>
         </div>
       </div>
-      <div className="grid grid-cols-1 col-span-2 md:grid-cols-3  xl:grid-cols-6 gap-[5.57rem]">
+      <div className="grid grid-cols-1 col-span-2 md:grid-cols-3  xl:grid-cols-6 gap-[5.57rem] pb-[1.29rem] border-b border-b-secondary-8/[0.2]">
         {data?.map((i, idx) => (
           <div key={idx} className={``}>
-            <h6 className="font-[700] text-secondary-8 leading-[2rem] tracking-[-0.0125rem] mb-[1.25rem]">
+            <h6 className="font-[700] text-[15px] text-secondary-8 leading-[2rem] tracking-[-0.0125rem] mb-[1.25rem] uppercase">
               {i?.data?.category}
             </h6>
             <ul className="flex flex-col gap-[0.83rem] ">
               {i?.data?.links?.map((i, idx) => (
-                <li className="text-secondary-8 text-[14px]  tracking-[0.00625rem]">
+                <li className="text-secondary-8 hover:text-secondary-2 transition-colors duration-300 ease-in-out cursor-pointer text-[14px]  tracking-[0.00625rem]">
                   <a href={i?.url}>{i?.title}</a>
                 </li>
               ))}
@@ -41,6 +41,11 @@ const Footer = ({ data }: IFooter) => {
             </p>
           </div>
         ))}
+      </div>
+      <div className="w-full py-[2rem] flex justify-end">
+        <p className="text-secondary-8 leading-[2rem] tracking-[0.00625rem]">
+          Copyright © 2022 timbu. All Rights Reserved
+        </p>
       </div>
     </div>
   );

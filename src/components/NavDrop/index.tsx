@@ -1,3 +1,4 @@
+import { CollectionEntry } from "astro:content";
 import {
   NavigationMenu,
   NavigationMenuContent,
@@ -9,30 +10,56 @@ import {
   NavigationMenuViewport,
 } from "components/ui/navigation-menu";
 
-const NavDrop = () => {
+interface INavDrop {
+  businesses: CollectionEntry<"businessTypes">[];
+  tools: CollectionEntry<"navToolsLinks">[];
+}
+
+const NavDrop = ({ businesses, tools }: INavDrop) => {
   return (
     <NavigationMenu>
       <NavigationMenuList>
         <NavigationMenuItem>
-          <NavigationMenuTrigger className="bg-transparent">
-            {" "}
-            Item One
+          <NavigationMenuTrigger className="bg-transparent text-secondary-2 font-[500] leading-[1.5rem] tracking-[0.005rem]">
+            Tools
           </NavigationMenuTrigger>
-          <NavigationMenuContent>
-            <NavigationMenuLink>
-              <div className="w-[20rem] h-[20rem]">Links</div>
-            </NavigationMenuLink>
+          {/* bigger drop needs to be built when data and use case exists for other category types defined */}
+          <NavigationMenuContent className="!w-[15.8125rem] min-h-[14rem] p-[1.5rem] flex flex-col gap-[1.5rem]">
+            {tools[0]?.data?.main
+              ?.filter((i) => i?.category === "features")
+              .map((i, idx) => (
+                <NavigationMenuItem
+                  key={idx}
+                  className="list-none group cursor-pointer"
+                >
+                  <span className="text-[15px] !text-secondary-5 group-hover:!text-secondary-2 font-[500] leading-[1.5rem] tracking-[0.005rem] cursor-pointer transition-colors duration-300 ease-in-out">
+                    <a href={`${i?.link}`}>{i?.title}</a>
+                  </span>
+                </NavigationMenuItem>
+              ))}
           </NavigationMenuContent>
         </NavigationMenuItem>
         <NavigationMenuItem>
-          <NavigationMenuTrigger className="bg-transparent">
-            Item Two
+          <NavigationMenuTrigger className="bg-transparent text-secondary-2 font-[500] leading-[1.5rem] tracking-[0.005rem]">
+            Business Types
           </NavigationMenuTrigger>
-          <NavigationMenuContent>
-            <NavigationMenuLink>
-              <div className="w-[20rem] h-[20rem]">Links</div>
-            </NavigationMenuLink>
+          <NavigationMenuContent className="!w-[15.8125rem] min-h-[14rem] p-[1.5rem] flex flex-col gap-[1.5rem]">
+            {businesses?.map((i, idx) => (
+              <NavigationMenuItem
+                key={idx}
+                className="list-none group cursor-pointer"
+              >
+                <span className="text-[15px] !text-secondary-5 group-hover:!text-secondary-2 font-[500] leading-[1.5rem] tracking-[0.005rem] cursor-pointer transition-colors duration-300 ease-in-out">
+                  <a href={`/businesses/${i?.slug}`}>{i?.data?.name}</a>
+                </span>
+              </NavigationMenuItem>
+            ))}
           </NavigationMenuContent>
+        </NavigationMenuItem>
+        <NavigationMenuItem>
+          <span className="text-[14px] text-secondary-2 font-[500] leading-[1.5rem] tracking-[0.005rem] cursor-pointer">
+            <a>Pricing</a>
+          </span>
         </NavigationMenuItem>
       </NavigationMenuList>
     </NavigationMenu>

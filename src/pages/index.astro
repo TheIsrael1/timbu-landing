@@ -147,12 +147,14 @@ const allTools = await getCollection("tools");
 					>
 						{landingPage?.data?.marketingVideoTitle}
 					</h4>
-					<div class="flex overflow-hidden w-full max-h-[32.375rem]">
+					<div
+						class="flex overflow-hidden w-full h-full max-h-[32.375rem]"
+					>
 						<Video link={landingPage?.data?.marketingVideoLink} />
 					</div>
 				</div>
 				<div
-					class="w-full relative px-[2.5rem] pb-[2.5rem] pt-[5rem] flex flex-col bg-white rounded-[1rem] shadow-4 -top-[0.5rem] md:top-0 md:-bottom-[12rem]"
+					class="w-full relative px-[2.5rem] pb-[2.5rem] pt-[5rem] flex flex-col bg-white rounded-[1rem] shadow-4 -top-[0.5rem] md:top-[12rem]"
 				>
 					<h5
 						class="text-secondary-2 text-[2rem] font-[600] leading-[2.5rem] mb-[1.5rem]"
