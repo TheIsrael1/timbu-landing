@@ -63,7 +63,7 @@ const allTools = await getCollection("tools");
             >
                 <div class="flex-grow flex flex-col md:py-[4.5rem]">
                     <h2
-                        class="font-[600] text-secondary-2 text-[4rem] md:text-[4.5rem] leading-[130%] md:leading-[5rem] tracking-[0.02rem] md:tracking-[0.0225rem] mb-[2.5rem]"
+                        class="font-[600] text-secondary-2 text-[3.5rem] md:text-[4.5rem] leading-[130%] md:leading-[5rem] tracking-[0.02rem] md:tracking-[0.0225rem] mb-[2.5rem]"
                     >
                         <TextFormat
                             text={businessType?.heroTitle}
@@ -139,7 +139,7 @@ const allTools = await getCollection("tools");
                     >
                         {businessType.marketingVideoTitle}
                     </h4>
-                    <div class="flex overflow-hidden w-full max-h-[32.375rem]">
+                    <div class="flex overflow-hidden w-full min-h-[32.375rem]">
                         <Video link={businessType?.marketingVideoLink} />
                     </div>
                 </div>
@@ -223,7 +223,7 @@ const allTools = await getCollection("tools");
                         Ready to Timbu? Manage, Grow and boost your business
                         productivity with Timbu.
                     </p>
-                    <div class="px-[3.79rem] flex flex-col gap-[1.5rem]">
+                    <div class="md:px-[3.79rem] flex flex-col gap-[1.5rem]">
                         {
                             [
                                 "Send unlimited invoices and estimates from anywhere.",

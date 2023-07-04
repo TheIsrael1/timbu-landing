@@ -29,7 +29,7 @@ const Menu = ({ businesses, tools }: INavDrop) => {
       {createPortal(
         <div
           className={`fixed h-full ${
-            menuOpen ? `translate-x-0` : `translate-x-full`
+            menuOpen ? `translate-x-0` : `!-translate-x-full`
           } transition-transform duration-300 ease-in-out  w-[100vw] overflow-auto top-0 bottom-0 right-0 left-0 bg-white z-10 flex flex-col px-container-base`}
         >
           <div className="w-full flex items-center justify-between border-b border-b-primary-2 lg:border-b-secondary-1 pb-[0.75rem] md:pb-[1rem] pt-[1.5rem]">

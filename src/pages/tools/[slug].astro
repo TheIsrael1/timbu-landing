@@ -80,7 +80,7 @@ const faqs = await getCollection("faq");
         <section class="w-full px-container-base lg:px-container-lg py-[5rem]">
             <div class="w-full flex flex-col items-center">
                 <h4
-                    class="text-secondary-2 text-[2.5rem] font-[700] leading-[3.5rem] tracking-[0.0125rem] mb-[1rem] max-w-[41.625rem] text-center"
+                    class="text-secondary-2 text-[2rem] md:text-[2.5rem] font-[700] leading-[3.5rem] tracking-[0.0125rem] mb-[1rem] max-w-[41.625rem] text-center"
                 >
                     <TextFormat
                         keyword={tool?.toolName}
@@ -89,12 +89,12 @@ const faqs = await getCollection("faq");
                     />
                 </h4>
                 <p
-                    class="text-secondary-5 text-[1.125rem] leading-[1.5rem] tracking-[0.00563rem] max-w-[37.75rem] text-center mb-[2.5rem]"
+                    class="text-secondary-5 text-[1rem] md:text-[1.125rem] leading-[1.5rem] tracking-[0.00563rem] max-w-[37.75rem] text-center mb-[2.5rem]"
                 >
                     Timbu is a business management, finance and marketing tool
                     that helps your business be more organized and grow!
                 </p>
-                <div class="w-full md:h-[40rem] max-w-[62.5rem]">
+                <div class="w-full h-[20rem] md:h-[40rem] max-w-[62.5rem]">
                     <iframe
                         class="w-full h-full"
                         src={tool?.howSectionTutorial}
@@ -118,7 +118,7 @@ const faqs = await getCollection("faq");
                         <div
                             class={`flex flex-col flex-grow items-center justify-center gap-[1.5rem]`}
                         >
-                            <h3 class="max-w-[27rem] text-secondary-2 text-[2.5rem] font-[600] leading-[3rem] tracking-[-0.02388rem]">
+                            <h3 class="max-w-[27rem] text-secondary-2 text-start w-full text-[2rem] md:text-[2.5rem] font-[600] leading-[3rem] tracking-[-0.02388rem]">
                                 {i?.heading}
                             </h3>
                             <p class="max-w-[27rem] text-secondary-8 -tracking-[0.01594rem] leading-[1.5rem]">

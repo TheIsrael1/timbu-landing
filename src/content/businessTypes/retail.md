@@ -16,7 +16,7 @@ howToCaseStudies:
   - payments
   - reciepts-and-invoice
 marketingVideoTitle: See how Hardware Retailer Sass uses Timbu to grow their business!
-marketingVideoLink: http://commondatastorage.googleapis.com/gtv-videos-bucket/sample/BigBuckBunny.mp4
+marketingVideoLink: https://www.youtube.com/embed/DqevC6kNSfk
 marketingSectionTitle: Timbu makes managing your Business Easy!
 marketingSectionDescription: Timbu is a business management, finance and marketing tool that helps your business be more organised and grow!
 marketingFeatures:

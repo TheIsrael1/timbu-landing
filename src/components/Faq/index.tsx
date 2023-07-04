@@ -21,7 +21,7 @@ const Faq = ({ data }: IFaq) => {
           <Accordion key={idx} type="single" collapsible>
             <AccordionItem value={i?.slug}>
               <AccordionTrigger>
-                <span className="text-secondary-15 leading-[1.5rem]">
+                <span className="text-secondary-15 text-start leading-[1.5rem]">
                   {i?.data?.question}
                 </span>
               </AccordionTrigger>

@@ -60,12 +60,12 @@ const allTools = await getCollection("tools");
 						/>
 					</h2>
 					<p
-						class="font-[500] text-secondary-2 text-[1.25rem] leading-[1.75rem] tracking-[0.00625rem] mb-[1.5rem] max-w-[28.875rem]"
+						class="font-[500] text-secondary-2 text-[1rem] md:text-[1.25rem] leading-[1.75rem] tracking-[0.00625rem] mb-[1.5rem] max-w-[28.875rem]"
 					>
 						{landingPage?.data?.heroSubTitle}
 					</p>
 					<p
-						class="text-secondary-3 leading-[1.5rem] text-[16px] md:text-[14px] mb-[2rem] max-w-[29.9375rem]"
+						class="text-secondary-3 leading-[1.5rem] text-[14px] mb-[2rem] max-w-[29.9375rem]"
 					>
 						{landingPage?.data?.heroDescription}
 					</p>
@@ -109,7 +109,7 @@ const allTools = await getCollection("tools");
 		<section class="w-full px-container-base lg:px-container-lg py-[5rem]">
 			<div class="w-full flex flex-col items-center">
 				<h4
-					class="text-secondary-2 text-[2.5rem] font-[700] leading-[3.5rem] tracking-[0.0125rem] mb-[1rem] max-w-[41.625rem] text-center"
+					class="text-secondary-2 text-[2rem] md:text-[2.5rem] font-[700] leading-[3.5rem] tracking-[0.0125rem] mb-[1rem] max-w-[41.625rem] text-center"
 				>
 					<TextFormat
 						keyword={landingPage?.data?.subHeroTitleKeyword}
@@ -118,7 +118,7 @@ const allTools = await getCollection("tools");
 					/>
 				</h4>
 				<p
-					class="text-secondary-5 text-[1.125rem] leading-[1.5rem] tracking-[0.00563rem] max-w-[37.75rem] text-center mb-[2.5rem]"
+					class="text-secondary-5 text-[1rem] md:text-[1.125rem] leading-[1.5rem] tracking-[0.00563rem] max-w-[37.75rem] text-center mb-[2.5rem]"
 				>
 					Timbu is a business management, finance and marketing tool
 					that helps your business be more organized and grow!
@@ -130,7 +130,7 @@ const allTools = await getCollection("tools");
 			class="w-full px-container-base lg:px-container-lg py-[2.75rem] flex flex-col gap-[2.5rem]"
 		>
 			<h3
-				class="text-secondary-2 max-w-[28.25rem] leading-[4rem] -tracking-[0.04688rem] text-[3rem]"
+				class="text-secondary-2 max-w-[28.25rem] leading-[4rem] -tracking-[0.04688rem] text-[2.275rem] md:text-[3rem]"
 			>
 				{landingPage?.data?.howSectionTitle}
 			</h3>
@@ -148,7 +148,7 @@ const allTools = await getCollection("tools");
 						{landingPage?.data?.marketingVideoTitle}
 					</h4>
 					<div
-						class="flex overflow-hidden w-full h-full max-h-[32.375rem]"
+						class="flex overflow-hidden w-full h-full min-h-[32.375rem]"
 					>
 						<Video link={landingPage?.data?.marketingVideoLink} />
 					</div>
@@ -200,10 +200,13 @@ const allTools = await getCollection("tools");
 				</div>
 			</div>
 		</section>
-		<section class="w-full px-container-base lg:px-container-lg">
+		<section
+			class="w-full px-container-base lg:px-container-lg py-[5rem] md:py-[7.5rem]"
+		>
 			<BusinessSelection
 				businessTypes={allBusinessTypes}
 				tools={allTools}
+				client:only
 			/>
 		</section>
 		<section>
@@ -235,7 +238,7 @@ const allTools = await getCollection("tools");
 						Ready to Timbu? Manage, Grow and boost your business
 						productivity with Timbu.
 					</p>
-					<div class="px-[3.79rem] flex flex-col gap-[1.5rem]">
+					<div class="md:px-[3.79rem] flex flex-col gap-[1.5rem]">
 						{
 							[
 								"Send unlimited invoices and estimates from anywhere.",

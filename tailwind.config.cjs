@@ -18,7 +18,7 @@ module.exports = {
 		  container: {
 			center: true,
 			screens: {
-			  xl: '1440px', //1920
+			  xl: '1440px',
 			}
 		  },
 		extend: {
@@ -55,7 +55,9 @@ module.exports = {
 					13: '#C3D4E9',
 					14: '#D9D9D9;',
 					15: '#292D32',
-					16: '#F5F5F5'
+					16: '#F5F5F5',
+					17: '#272A2E',
+					18: '#7C7C7C'
 				},
 				success: {
 					1: '#005A44'

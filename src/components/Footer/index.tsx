@@ -23,7 +23,7 @@ const Footer = ({ data }: IFooter) => {
           </button>
         </div>
       </div>
-      <div className="grid grid-cols-1 col-span-2 md:grid-cols-3  xl:grid-cols-6 gap-[5.57rem] pb-[1.29rem] border-b border-b-secondary-8/[0.2]">
+      <div className="grid grid-cols-1 col-span-2 md:grid-cols-3  xl:grid-cols-6 gap-[4rem] md:gap-[5.57rem] pb-[1.29rem] border-b border-b-secondary-8/[0.2]">
         {data?.map((i, idx) => (
           <div key={idx} className={``}>
             <h6 className="font-[700] text-[15px] text-secondary-8 leading-[2rem] tracking-[-0.0125rem] mb-[1.25rem] uppercase">

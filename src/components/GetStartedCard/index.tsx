@@ -1,4 +1,3 @@
-import { CollectionEntry } from "astro:content";
 import { Input } from "components/ui/input";
 
 interface GetStartedCard {
@@ -9,7 +8,7 @@ interface GetStartedCard {
 const GetStartedCard = ({ bussinessType, size = "lg" }: GetStartedCard) => {
   return (
     <div
-      className={`w-full flex flex-col p-[2.5rem] ${
+      className={`w-full flex flex-col px-[1.5rem] py-[2.5rem] md:px-[2.5rem] ${
         size === "lg"
           ? ` border-8 border-secondary-4 rounded-[8px]`
           : `rounded-[1.5rem] shadow-5`
