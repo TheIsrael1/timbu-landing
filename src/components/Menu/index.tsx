@@ -78,16 +78,7 @@ const Menu = ({ businesses, tools }: INavDrop) => {
                 </span>
               ))}
             </div>
-            <div className="flex flex-col gap-[1rem]">
-              <h4 className="text-secondary-2 font-[700]">Business Types</h4>
-              {businesses?.map((i, idx) => (
-                <span key={idx} className="list-none group cursor-pointer">
-                  <span className="text-[15px] !text-secondary-5 group-hover:!text-secondary-2 font-[500] leading-[1.5rem] tracking-[0.005rem] cursor-pointer transition-colors duration-300 ease-in-out">
-                    <a href={`/businesses/${i?.slug}`}>{i?.data?.name}</a>
-                  </span>
-                </span>
-              ))}
-            </div>
+
             <div className="flex flex-col gap-[1rem]">
               <span className="text-[15px] !text-secondary-5 group-hover:!text-secondary-2 font-[500] leading-[1.5rem] tracking-[0.005rem] cursor-pointer transition-colors duration-300 ease-in-out">
                 <a href={`/pricing`}>Pricing</a>

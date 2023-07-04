@@ -24,7 +24,7 @@ const toolsLinks = await getCollection("navToolsLinks");
                 <NavDrop
                     businesses={businessTypes}
                     tools={toolsLinks}
-                    client:only
+                    client:load
                 />
             </div>
         </div>
@@ -34,23 +34,25 @@ const toolsLinks = await getCollection("navToolsLinks");
             >
                 Sign Up
             </button>
-            <button
-                class="flex items-center justify-center group gap-2 h-[3rem] px-[1.25rem] border rounded-[8px] border-primary-1 hover:bg-primary-1/[0.05] transition-colors ease-in-out duration-300"
-            >
-                <span
-                    class="text-[16px] text-secondary-2 group-hover:text-primary-1 transition-colors ease-in-out duration-300 font-[600] leading-[1.5rem] tracking-[0.005rem]"
-                    >Request a Demo
-                </span>
-                <span
-                    class="block w-[2rem] h-[2rem] bg-slate-200 rounded-[50px] overflow-hidden"
+            <a href="/request-demo">
+                <button
+                    class="flex items-center justify-center group gap-2 h-[3rem] px-[1.25rem] border rounded-[8px] border-primary-1 hover:bg-primary-1/[0.05] transition-colors ease-in-out duration-300"
                 >
-                    <img
-                        src={DpPlaceholder?.src}
-                        alt=""
-                        class="w-full h-full"
-                    />
-                </span>
-            </button>
+                    <span
+                        class="text-[16px] text-secondary-2 group-hover:text-primary-1 transition-colors ease-in-out duration-300 font-[600] leading-[1.5rem] tracking-[0.005rem]"
+                        >Request a Demo
+                    </span>
+                    <span
+                        class="block w-[2rem] h-[2rem] bg-slate-200 rounded-[50px] overflow-hidden"
+                    >
+                        <img
+                            src={DpPlaceholder?.src}
+                            alt=""
+                            class="w-full h-full"
+                        />
+                    </span>
+                </button>
+            </a>
             <button
                 class="h-[3rem] px-[1.25rem] transition-opacity ease-in-out duration-300 rounded-[8px] bg-primary-1 hover:opacity-95 active:opacity-100"
             >

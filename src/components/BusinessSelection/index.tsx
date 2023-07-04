@@ -85,7 +85,7 @@ const BusinessSelection = ({
       </div>
 
       {/* items section */}
-      <div className="flex flex-col gap-[4.5rem]">
+      <div className="flex flex-col gap-[2.5rem] md:gap-[4.5rem]">
         <h5 className="text-secondary-2 text-[2.5rem] md:text-[3rem] leading-[3rem]  md:leading-[4rem] tracking-[-0.04688rem] md:-tracking-[0.04688rem] max-w-[34.375rem]">
           Which of Timbu’s Tools do you want to use?
         </h5>

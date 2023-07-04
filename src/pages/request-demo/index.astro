@@ -1,0 +1,59 @@
+---
+import Layout from "../../layouts/Layout.astro";
+import PreFooter from "../../components/PreFooter";
+import blueCheck from "assets/blueCheck.svg";
+import RequestDemo from "components/RequestDemo";
+---
+
+<Layout title="Welcome to Astro.">
+    <main class="w-full flex flex-col">
+        <section
+            class="w-full px-container-base lg:px-container-lg pt-[4.75rem] pb-[4.25rem] md:pt-[6.44rem] md:pb-[4.94rem]"
+        >
+            <div
+                class="w-full flex flex-col lg:flex-row lg:justify-between gap-[7.5rem] md:gap-[2.75rem] relative"
+            >
+                <div
+                    class="flex-grow flex flex-col md:py-[3.5rem] max-w-[28.7rem]"
+                >
+                    <h4
+                        class="text-secondary-7 font-[700] text-[2.5rem] leading-[3.5rem] mb-[2rem]"
+                    >
+                        Request a Demo!
+                    </h4>
+                    <p
+                        class="text-secondary-7 text-[1.125rem] leading-[1.5rem] mb-[1.5rem]"
+                    >
+                        Ready to Timbu? Manage, Grow and boost your business
+                        productivity with Timbu.
+                    </p>
+                    <div class="flex flex-col gap-[1.5rem]">
+                        {
+                            [
+                                "Send unlimited invoices and estimates from anywhere.",
+                                "Send digital receipts for any payment.",
+                                "Schedule automatic payment reminders.",
+                                "Save and reuse custom invoice templates.",
+                            ]?.map((i) => (
+                                <div class="flex items-center gap-[1rem]">
+                                    <img src={blueCheck?.src} alt="" />
+                                    <span class="text-secondary-7 leading-[1.5rem]">
+                                        {i}
+                                    </span>
+                                </div>
+                            ))
+                        }
+                    </div>
+                </div>
+                <div class="flex-grow">
+                    <RequestDemo client:load />
+                </div>
+            </div>
+        </section>
+        <section
+            class="w-full px-container-base lg:px-container-lg py-[2.5rem]"
+        >
+            <PreFooter />
+        </section>
+    </main>
+</Layout>

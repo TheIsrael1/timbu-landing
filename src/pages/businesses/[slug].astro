@@ -63,7 +63,7 @@ const allTools = await getCollection("tools");
             >
                 <div class="flex-grow flex flex-col md:py-[4.5rem]">
                     <h2
-                        class="font-[600] text-secondary-2 text-[3.5rem] md:text-[4.5rem] leading-[130%] md:leading-[5rem] tracking-[0.02rem] md:tracking-[0.0225rem] mb-[2.5rem]"
+                        class="font-[600] text-secondary-2 text-[3rem] md:text-[4.5rem] leading-[130%] md:leading-[5rem] tracking-[0.02rem] md:tracking-[0.0225rem] mb-[2.5rem]"
                     >
                         <TextFormat
                             text={businessType?.heroTitle}
@@ -126,7 +126,7 @@ const allTools = await getCollection("tools");
             >
                 {businessType?.howToSectionTitles}
             </h3>
-            <HowToSection client:only data={relatedHowToSectionContent} />
+            <HowToSection client:load data={relatedHowToSectionContent} />
         </section>
         <section class="w-full bg-secondary-9 relative mb-[7.5rem]">
             <div
@@ -144,7 +144,7 @@ const allTools = await getCollection("tools");
                     </div>
                 </div>
                 <div
-                    class="w-full relative px-[2.5rem] pb-[2.5rem] pt-[5rem] flex flex-col bg-white rounded-[1rem] shadow-4 -top-[0.5rem] md:top-0 md:-bottom-[12rem]"
+                    class="w-full relative px-4 md:px-[2.5rem] pb-[2.5rem] pt-[5rem] flex flex-col bg-white rounded-[1rem] shadow-4 -top-[0.5rem] md:top-0 md:-bottom-[12rem]"
                 >
                     <h5
                         class="text-secondary-2 text-[2rem] font-[600] leading-[2.5rem] mb-[1.5rem]"
@@ -251,13 +251,13 @@ const allTools = await getCollection("tools");
         </section>
         <section class="w-full">
             <PeopleSayCarousel
-                client:only
+                client:load
                 title="What Businesses say about Timbu."
                 data={whatBusinessSay}
             />
         </section>
         <section class="w-full px-container-base lg:px-container-lg py-[5rem]">
-            <Faq client:only data={faqs} />
+            <Faq client:load data={faqs} />
         </section>
         <section
             class="w-full px-container-base lg:px-container-lg py-[2.5rem]"

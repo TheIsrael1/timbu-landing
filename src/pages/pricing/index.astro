@@ -1,0 +1,17 @@
+---
+import Layout from "../../layouts/Layout.astro";
+import Faq from "components/Faq";
+import PreFooter from "components/PreFooter";
+import { getCollection } from "astro:content";
+
+const faqs = await getCollection("faq");
+---
+
+<Layout title="Welcome to Astro.">
+    <section class="w-full px-container-base lg:px-container-lg py-[5rem]">
+        <Faq client:load data={faqs} />
+    </section>
+    <section class="w-full px-container-base lg:px-container-lg py-[2.5rem]">
+        <PreFooter />
+    </section>
+</Layout>

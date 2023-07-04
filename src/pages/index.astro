@@ -51,7 +51,7 @@ const allTools = await getCollection("tools");
 			>
 				<div class="flex-grow flex flex-col md:py-[4.5rem]">
 					<h2
-						class="font-[600] text-secondary-2 text-[4rem] md:text-[4.5rem] leading-[130%] md:leading-[5rem] tracking-[0.02rem] md:tracking-[0.0225rem] mb-[2.5rem]"
+						class="font-[600] text-secondary-2 text-[3rem] md:text-[4.5rem] leading-[130%] md:leading-[5rem] tracking-[0.02rem] md:tracking-[0.0225rem] mb-[2.5rem]"
 					>
 						<TextFormat
 							text={landingPage?.data?.heroTitle}
@@ -134,7 +134,7 @@ const allTools = await getCollection("tools");
 			>
 				{landingPage?.data?.howSectionTitle}
 			</h3>
-			<HowToSection client:only data={relatedHowToSectionContent} />
+			<HowToSection client:load data={relatedHowToSectionContent} />
 		</section>
 		<section class="w-full bg-secondary-9 relative mb-[7.5rem]">
 			<div
@@ -206,7 +206,7 @@ const allTools = await getCollection("tools");
 			<BusinessSelection
 				businessTypes={allBusinessTypes}
 				tools={allTools}
-				client:only
+				client:load
 			/>
 		</section>
 		<section>
@@ -263,13 +263,13 @@ const allTools = await getCollection("tools");
 		</section>
 		<section class="w-full">
 			<PeopleSayCarousel
-				client:only
+				client:load
 				title="What Businesses say about Timbu."
 				data={whatBusinessSay}
 			/>
 		</section>
 		<section class="w-full px-container-base lg:px-container-lg py-[5rem]">
-			<Faq client:only data={faqs} />
+			<Faq client:load data={faqs} />
 		</section>
 		<section
 			class="w-full px-container-base lg:px-container-lg py-[2.5rem]"

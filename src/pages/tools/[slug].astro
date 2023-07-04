@@ -40,7 +40,7 @@ const faqs = await getCollection("faq");
                     class="flex flex-col w-full lg:min-w-[38.5rem] md:py-[4.5rem]"
                 >
                     <h2
-                        class="font-[600] text-secondary-2 text-[4rem] md:text-[4.5rem] leading-[130%] md:leading-[5rem] tracking-[0.02rem] md:tracking-[0.0225rem] mb-[2.5rem]"
+                        class="font-[600] text-secondary-2 text-[3rem] md:text-[4.5rem] leading-[130%] md:leading-[5rem] tracking-[0.02rem] md:tracking-[0.0225rem] mb-[2.5rem]"
                     >
                         <TextFormat
                             text={tool?.heroTitle}
@@ -71,7 +71,7 @@ const faqs = await getCollection("faq");
                     </div>
                 </div>
                 <div
-                    class="lg:max-w-[48.125%] flex-grow flex-shrink-0 lg:pl-[8px] flex-shrink-1 basis-auto overflow-hidden min-h-[39rem] w-full"
+                    class="lg:max-w-[48.125%] flex-grow flex-shrink-0 lg:pl-[8px] flex-shrink-1 basis-auto overflow-hidden w-full"
                 >
                     <img src={toolImage?.src} alt="" class="w-full h-full" />
                 </div>
@@ -118,7 +118,7 @@ const faqs = await getCollection("faq");
                         <div
                             class={`flex flex-col flex-grow items-center justify-center gap-[1.5rem]`}
                         >
-                            <h3 class="max-w-[27rem] text-secondary-2 text-start w-full text-[2rem] md:text-[2.5rem] font-[600] leading-[3rem] tracking-[-0.02388rem]">
+                            <h3 class="max-w-[27rem] text-secondary-2 text-start w-full text-[1.5rem] md:text-[2.5rem] font-[600] leading-[3rem] tracking-[-0.02388rem]">
                                 {i?.heading}
                             </h3>
                             <p class="max-w-[27rem] text-secondary-8 -tracking-[0.01594rem] leading-[1.5rem]">
@@ -137,7 +137,7 @@ const faqs = await getCollection("faq");
             ))
         }
         <section class="w-full px-container-base lg:px-container-lg py-[5rem]">
-            <Faq client:only data={faqs} />
+            <Faq client:load data={faqs} />
         </section>
         <section
             class="w-full px-container-base lg:px-container-lg py-[2.5rem]"
