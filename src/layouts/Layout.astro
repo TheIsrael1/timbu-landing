@@ -28,18 +28,20 @@ const footerLinks = await getCollection("footerLinks");
 		<meta name="generator" content={Astro.generator} />
 		<title>{title}</title>
 	</head>
-	<body class="font-lato w-full h-full container overflow-x-hidden relative">
+	<body class="font-lato w-full h-full">
 		<div class="w-full absolute top-0 z-[-1]">
 			<img src={heroBgImg?.src} class="hidden lg:flex w-full" />
 			<img src={heroBgImgMobile?.src} class="lg:hidden w-full" />
 		</div>
-		<Nav />
-		<slot />
-		<section
-			class="w-full px-container-base lg:px-container-lg xl:px-container-xl py-[1.5rem]"
-		>
-			<Footer data={footerLinks} />
-		</section>
+		<div class="w-full h-full container overflow-x-hidden relative">
+			<Nav />
+			<slot />
+			<section
+				class="w-full px-container-base lg:px-container-lg xl:px-container-xl py-[1.5rem]"
+			>
+				<Footer data={footerLinks} />
+			</section>
+		</div>
 	</body>
 </html>
 <style is:global>

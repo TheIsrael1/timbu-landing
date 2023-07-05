@@ -23,7 +23,7 @@ const GetStartedCard = ({ bussinessType, size = "lg" }: GetStartedCard) => {
       <div className="w-full flex flex-col py-4 gap-4">
         <Input
           placeholder="Name"
-          className="h-[4rem] md:h-[4.5rem] px-[0.5rem] text-secondary-2/60 placeholder:text-secondary-2/[0.38]"
+          className="h-[2.5rem] md:h-[3.5rem] px-[0.5rem] text-secondary-2/60 placeholder:text-secondary-2/[0.38]"
         />
         <div
           className={`flex ${
@@ -32,11 +32,11 @@ const GetStartedCard = ({ bussinessType, size = "lg" }: GetStartedCard) => {
         >
           <Input
             placeholder="Email"
-            className="h-[4rem] md:h-[4.5rem] px-[0.5rem] text-secondary-2/60 placeholder:text-secondary-2/[0.38]"
+            className="h-[2.5rem] md:h-[3.5rem] px-[0.5rem] text-secondary-2/60 placeholder:text-secondary-2/[0.38]"
           />
           <Input
             placeholder="Phone number"
-            className="h-[4rem] md:h-[4.5rem] px-[0.5rem] text-secondary-2/60 placeholder:text-secondary-2/[0.38]"
+            className="h-[2.5rem] md:h-[3.5rem] px-[0.5rem] text-secondary-2/60 placeholder:text-secondary-2/[0.38]"
           />
         </div>
       </div>
@@ -52,11 +52,11 @@ const GetStartedCard = ({ bussinessType, size = "lg" }: GetStartedCard) => {
           >
             <Input
               placeholder="Business name"
-              className="h-[4rem] md:h-[4.5rem] px-[0.5rem] text-secondary-2/60 placeholder:text-secondary-2/[0.38]"
+              className="h-[2.5rem] md:h-[3.5rem] px-[0.5rem] text-secondary-2/60 placeholder:text-secondary-2/[0.38]"
             />
             <Input
               placeholder="Business type"
-              className="h-[4rem] md:h-[4.5rem] px-[0.5rem] text-secondary-2/60 placeholder:text-secondary-2/[0.38]"
+              className="h-[2.5rem] md:h-[3.5rem] px-[0.5rem] text-secondary-2/60 placeholder:text-secondary-2/[0.38]"
             />
           </div>
         </>

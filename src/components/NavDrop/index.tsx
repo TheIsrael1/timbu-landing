@@ -20,7 +20,7 @@ const NavDrop = ({ businesses, tools }: INavDrop) => {
     <NavigationMenu>
       <NavigationMenuList>
         <NavigationMenuItem>
-          <NavigationMenuTrigger className="bg-transparent text-secondary-2 font-[500] leading-[1.5rem] tracking-[0.005rem]">
+          <NavigationMenuTrigger className="text-[1rem] bg-transparent text-secondary-2 font-[500] leading-[1.5rem] tracking-[0.005rem]">
             Tools
           </NavigationMenuTrigger>
           {/* bigger drop needs to be built when data and use case exists for other category types defined */}
@@ -40,7 +40,7 @@ const NavDrop = ({ businesses, tools }: INavDrop) => {
           </NavigationMenuContent>
         </NavigationMenuItem>
         <NavigationMenuItem>
-          <NavigationMenuTrigger className=" bg-transparent text-secondary-2 font-[500] leading-[1.5rem] tracking-[0.005rem]">
+          <NavigationMenuTrigger className="text-[1rem] bg-transparent text-secondary-2 font-[500] leading-[1.5rem] tracking-[0.005rem]">
             Business Types
           </NavigationMenuTrigger>
           <NavigationMenuContent className="!w-[15.8125rem] min-h-[14rem] p-[1.5rem] flex flex-col gap-[1.5rem]">
@@ -57,7 +57,7 @@ const NavDrop = ({ businesses, tools }: INavDrop) => {
           </NavigationMenuContent>
         </NavigationMenuItem>
         <NavigationMenuItem>
-          <span className="text-[0.875rem] text-secondary-2 font-[500] leading-[1.5rem] tracking-[0.005rem] cursor-pointer">
+          <span className="text-[1rem] text-secondary-2 font-[500] leading-[1.5rem] tracking-[0.005rem] cursor-pointer">
             <a href="/pricing">Pricing</a>
           </span>
         </NavigationMenuItem>
