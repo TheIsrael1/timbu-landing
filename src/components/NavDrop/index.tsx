@@ -57,7 +57,7 @@ const NavDrop = ({ businesses, tools }: INavDrop) => {
           </NavigationMenuContent>
         </NavigationMenuItem>
         <NavigationMenuItem>
-          <span className="text-[1rem] text-secondary-2 font-[500] leading-[1.5rem] tracking-[0.005rem] cursor-pointer">
+          <span className="text-[1rem] block px-4 py-2 text-secondary-2 font-[500] leading-[1.5rem] tracking-[0.005rem] cursor-pointer">
             <a href="/pricing">Pricing</a>
           </span>
         </NavigationMenuItem>

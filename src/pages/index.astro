@@ -70,13 +70,13 @@ const allTools = await getCollection("tools");
 						{landingPage?.data?.heroDescription}
 					</p>
 					<div class="flex items-center gap-[0.62rem]">
-						<div class="flex relative items-center">
+						<div class="flex relative items-center pl-[10px]">
 							{
 								relatedHeroPartners?.map((i, idx) => (
 									<div
 										class={`-ml-[10px] z-${
 											idx + 2
-										} rounded-[50px] h-[2rem] w-[2rem] border border-white bg-slate-300 overflow-hidden`}
+										} rounded-[50px] h-[2rem] w-[2rem] border-2 border-white bg-slate-300 overflow-hidden`}
 									>
 										<img
 											src={i?.data?.image}

@@ -10,14 +10,14 @@ const GetStartedCard = ({ bussinessType, size = "lg" }: GetStartedCard) => {
     <div
       className={`w-full flex flex-col px-[1.5rem] py-[2.5rem] md:px-[2.5rem] ${
         size === "lg"
-          ? ` border-8 border-secondary-4 rounded-[8px]`
+          ? ` border-8 border-[#F8F9FA] rounded-[8px]`
           : `rounded-[1.5rem] shadow-5`
       } bg-white`}
     >
       <h5 className="text-secondary-2/[0.87] font-[700] text-[1.5rem] leading-[2rem] tracking-[0.01125rem] mb-[0.75rem]">
         Get Started!
       </h5>
-      <span className="text-secondary-2/60 leading-[1.5rem] tracking-[0.00938rem]">
+      <span className="text-secondary-2/[0.87] leading-[1.5rem] tracking-[0.00938rem]">
         Enter your Info in the text fields below.
       </span>
       <div className="w-full flex flex-col py-4 gap-4">
@@ -42,7 +42,7 @@ const GetStartedCard = ({ bussinessType, size = "lg" }: GetStartedCard) => {
       </div>
       {!bussinessType ? (
         <>
-          <h6 className="text-secondary-2/60 text-[1rem] md:text-[1.25rem] leading-[1.5rem] tracking-[0.00938rem] mb-[1.5rem]">
+          <h6 className="text-secondary-2/60 text-[1rem] md:text-[1.25rem] leading-[1.5rem] tracking-[0.00938rem] my-[1rem]">
             What type of business do you run?
           </h6>
           <div
