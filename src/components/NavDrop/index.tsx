@@ -9,6 +9,7 @@ import {
   NavigationMenuTrigger,
   NavigationMenuViewport,
 } from "components/ui/navigation-menu";
+import { capitalizeFirstLetter } from "lib/helpers";
 
 interface INavDrop {
   businesses: CollectionEntry<"businessTypes">[];
@@ -33,7 +34,7 @@ const NavDrop = ({ businesses, tools }: INavDrop) => {
                   className="list-none group cursor-pointer"
                 >
                   <span className="text-[1rem] !text-secondary-5 group-hover:!text-secondary-2 font-[500] leading-[1.5rem] tracking-[0.005rem] cursor-pointer transition-colors duration-300 ease-in-out">
-                    <a href={`${i?.link}`}>{i?.title}</a>
+                    <a href={`${i?.link}`}>{capitalizeFirstLetter(i?.title)}</a>
                   </span>
                 </NavigationMenuItem>
               ))}
@@ -50,7 +51,9 @@ const NavDrop = ({ businesses, tools }: INavDrop) => {
                 className="list-none group cursor-pointer"
               >
                 <span className="text-[1rem] !text-secondary-5 group-hover:!text-secondary-2 font-[500] leading-[1.5rem] tracking-[0.005rem] cursor-pointer transition-colors duration-300 ease-in-out">
-                  <a href={`/businesses/${i?.slug}`}>{i?.data?.name}</a>
+                  <a href={`/businesses/${i?.slug}`}>
+                    {capitalizeFirstLetter(i?.data?.name)}
+                  </a>
                 </span>
               </NavigationMenuItem>
             ))}
