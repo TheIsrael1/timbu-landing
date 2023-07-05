@@ -57,7 +57,8 @@ module.exports = {
 					15: '#292D32',
 					16: '#F5F5F5',
 					17: '#272A2E',
-					18: '#7C7C7C'
+					18: '#7C7C7C',
+					19: '#454545'
 				},
 				success: {
 					1: '#005A44'
@@ -71,7 +72,8 @@ module.exports = {
 				2: '0px 0px 32px 0px rgba(0, 0, 0, 0.10)',
 				3: '0px 0px 32px 0px rgba(40, 40, 40, 0.10)',
 				4: '0px 4px 4px 0px rgba(0, 0, 0, 0.25)',
-				5: '0px 2px 6px 4px rgba(50, 71, 92, 0.02), 0px 4px 9px 1px rgba(50, 71, 92, 0.04), 0px 2px 9px 0px rgba(50, 71, 92, 0.06)'
+				5: '0px 2px 6px 4px rgba(50, 71, 92, 0.02), 0px 4px 9px 1px rgba(50, 71, 92, 0.04), 0px 2px 9px 0px rgba(50, 71, 92, 0.06)',
+				6: '0px 0px 40.793495178222656px 0px rgba(0, 0, 0, 0.10)'
 			  },
 			  backgroundImage: {
      

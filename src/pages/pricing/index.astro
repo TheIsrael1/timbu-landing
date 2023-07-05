@@ -3,11 +3,72 @@ import Layout from "../../layouts/Layout.astro";
 import Faq from "components/Faq";
 import PreFooter from "components/PreFooter";
 import { getCollection } from "astro:content";
+import blueCheck from "assets/blueCheck.svg";
 
 const faqs = await getCollection("faq");
 ---
 
 <Layout title="Welcome to Astro.">
+    <section
+        class="w-full px-container-base lg:px-container-lg pt-[4.75rem] py-[7.5rem]"
+    >
+        <div class="w-full flex flex-col gap-[2.5rem]">
+            <h3
+                class="text-center text-secondary-2 font-[600] leading-[3.5rem] tracking-[-0.05rem] text-[2rem] md:text-[2.5rem]"
+            >
+                Make teamwork more productive
+            </h3>
+            <div
+                class="w-full md:py-[6.5rem] grid grid-cols-1 lg:grid-cols-3 gap-[5rem] lg:px-[4rem] min-h-[40vh] lg:shadow-6 lg:bg-white lg:border-t-[5px] border-t-primary-1"
+            >
+                <!-- seems we might need to also create a collection for pricing, setup has been made in the collection config -->
+                {
+                    [...Array(3)]?.map((i) => (
+                        <div class="flex flex-col gap-[1.75rem] p-[1.5rem] bg-white lg:bg-transparent w-full lg:max-w-[18.375rem]">
+                            <div class="flex flex-col gap-4">
+                                <h6 class="text-secondary-2 text-[1.8325rem] font-[700] leadin-[2.39025rem]">
+                                    Free
+                                </h6>
+                                <span class="text-secondary-2 leading-[1.61113rem]">
+                                    The quickest and easiest way to try Timbu
+                                </span>
+                                <div class="flex items-center">
+                                    <span class="text-secondary-2 font-[700] leading-[2.39025rem]">
+                                        $0 USD
+                                    </span>
+                                    <span class="text-secondary-19">/mo</span>
+                                </div>
+                            </div>
+                            <button class="w-full h-[3.625rem] md:h-[4rem] rounded-[0.5rem] bg-primary-1 shadow-1 hover:opacity-90 active:opacity-100 transition-opacity duration-300 ease-in-out">
+                                <span class="text-white font-[500] leading-[1.5rem] tracking-[0.02875rem]">
+                                    Get Started
+                                </span>
+                            </button>
+                            <div class=" flex flex-col gap-[1.5rem]">
+                                {[
+                                    "Send unlimited invoices and estimates from anywhere.",
+                                    "Send digital receipts for any payment.",
+                                    "Schedule automatic payment reminders.",
+                                    "Save and reuse custom invoice templates.",
+                                ]?.map((i) => (
+                                    <div class="flex items-center gap-[1rem]">
+                                        <img
+                                            class="w-[1rem]"
+                                            src={blueCheck?.src}
+                                            alt=""
+                                        />
+                                        <span class="text-secondary-7 leading-[1.5rem]">
+                                            {i}
+                                        </span>
+                                    </div>
+                                ))}
+                            </div>
+                        </div>
+                    ))
+                }
+            </div>
+        </div>
+    </section>
     <section class="w-full px-container-base lg:px-container-lg py-[5rem]">
         <Faq client:only data={faqs} />
     </section>
