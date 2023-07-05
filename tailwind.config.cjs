@@ -23,10 +23,12 @@ module.exports = {
 		  },
 		extend: {
 			padding: {
+				'container-xl': '7.5rem',
 				'container-lg': '5rem',
 				'container-base': '1.5rem'
 			  },
 			  margin: {
+				'container-xl': '7.5rem',
 				'container-lg': '5rem',
 				'container-base': '1.5rem'
 			  },

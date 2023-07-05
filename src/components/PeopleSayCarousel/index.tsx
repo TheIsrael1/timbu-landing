@@ -28,7 +28,7 @@ interface IPeopleSayCarousel {
 const PeopleSayCarousel = ({ title, data }: IPeopleSayCarousel) => {
   return (
     <div className="flex flex-col py-[2.5rem] gap-[5.5rem]">
-      <h4 className="px-container-base lg:px-container-lg max-w-[40.25rem] text-secondary-10 text-[3rem] leading-[4rem] -tracking-[0.04688rem]">
+      <h4 className="px-container-base lg:px-container-lg  xl:px-container-xl max-w-[40.25rem] text-secondary-10 text-[3rem] leading-[4rem] -tracking-[0.04688rem]">
         {title}
       </h4>
       <Carousel

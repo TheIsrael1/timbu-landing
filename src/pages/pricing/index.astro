@@ -10,7 +10,7 @@ const faqs = await getCollection("faq");
 
 <Layout title="Welcome to Astro.">
     <section
-        class="w-full px-container-base lg:px-container-lg pt-[4.75rem] py-[7.5rem]"
+        class="w-full px-container-base lg:px-container-lg xl:px-container-xl pt-[4.75rem] py-[7.5rem]"
     >
         <div class="w-full flex flex-col gap-[2.5rem]">
             <h3
@@ -69,10 +69,14 @@ const faqs = await getCollection("faq");
             </div>
         </div>
     </section>
-    <section class="w-full px-container-base lg:px-container-lg py-[5rem]">
+    <section
+        class="w-full px-container-base lg:px-container-lg xl:px-container-xl py-[5rem]"
+    >
         <Faq client:only data={faqs} />
     </section>
-    <section class="w-full px-container-base lg:px-container-lg py-[2.5rem]">
+    <section
+        class="w-full px-container-base lg:px-container-lg xl:px-container-xl py-[2.5rem]"
+    >
         <PreFooter />
     </section>
 </Layout>

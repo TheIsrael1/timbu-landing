@@ -32,7 +32,7 @@ const NavDrop = ({ businesses, tools }: INavDrop) => {
                   key={idx}
                   className="list-none group cursor-pointer"
                 >
-                  <span className="text-[15px] !text-secondary-5 group-hover:!text-secondary-2 font-[500] leading-[1.5rem] tracking-[0.005rem] cursor-pointer transition-colors duration-300 ease-in-out">
+                  <span className="text-[1rem] !text-secondary-5 group-hover:!text-secondary-2 font-[500] leading-[1.5rem] tracking-[0.005rem] cursor-pointer transition-colors duration-300 ease-in-out">
                     <a href={`${i?.link}`}>{i?.title}</a>
                   </span>
                 </NavigationMenuItem>
@@ -40,7 +40,7 @@ const NavDrop = ({ businesses, tools }: INavDrop) => {
           </NavigationMenuContent>
         </NavigationMenuItem>
         <NavigationMenuItem>
-          <NavigationMenuTrigger className="bg-transparent text-secondary-2 font-[500] leading-[1.5rem] tracking-[0.005rem]">
+          <NavigationMenuTrigger className=" bg-transparent text-secondary-2 font-[500] leading-[1.5rem] tracking-[0.005rem]">
             Business Types
           </NavigationMenuTrigger>
           <NavigationMenuContent className="!w-[15.8125rem] min-h-[14rem] p-[1.5rem] flex flex-col gap-[1.5rem]">
@@ -49,7 +49,7 @@ const NavDrop = ({ businesses, tools }: INavDrop) => {
                 key={idx}
                 className="list-none group cursor-pointer"
               >
-                <span className="text-[15px] !text-secondary-5 group-hover:!text-secondary-2 font-[500] leading-[1.5rem] tracking-[0.005rem] cursor-pointer transition-colors duration-300 ease-in-out">
+                <span className="text-[1rem] !text-secondary-5 group-hover:!text-secondary-2 font-[500] leading-[1.5rem] tracking-[0.005rem] cursor-pointer transition-colors duration-300 ease-in-out">
                   <a href={`/businesses/${i?.slug}`}>{i?.data?.name}</a>
                 </span>
               </NavigationMenuItem>
@@ -57,7 +57,7 @@ const NavDrop = ({ businesses, tools }: INavDrop) => {
           </NavigationMenuContent>
         </NavigationMenuItem>
         <NavigationMenuItem>
-          <span className="text-[14px] text-secondary-2 font-[500] leading-[1.5rem] tracking-[0.005rem] cursor-pointer">
+          <span className="text-[0.875rem] text-secondary-2 font-[500] leading-[1.5rem] tracking-[0.005rem] cursor-pointer">
             <a href="/pricing">Pricing</a>
           </span>
         </NavigationMenuItem>
